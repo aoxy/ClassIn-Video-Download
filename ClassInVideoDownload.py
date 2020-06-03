@@ -53,7 +53,7 @@ def main():
     filepaths = os.getcwd() + "\\todo\\"
     filelist = os.listdir(filepaths)
     for html_file in filelist:
-        if not re.match(".*html", html_file):
+        if html_file[-5:] != '.html':
             continue
         with open(filepaths + html_file, "r", encoding='utf-8') as html:
             text = html.read()
