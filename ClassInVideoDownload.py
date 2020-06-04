@@ -26,8 +26,8 @@ def download_single_lesson(url):
         resp = session.post(url=lesson_info_url, headers=headers, data=data)
         text = resp.json()
         CourseName = text['data']['courseName']
-        path = os.getcwd()+"\\ClassInVideo\\" + CourseName + "\\" + \
-            text['data']['lessonData']['fileList'][0]['CreateTime'][5:10] + "\\"
+        path = os.getcwd()+"/ClassInVideo/" + CourseName + "/" + \
+            text['data']['lessonData']['fileList'][0]['CreateTime'][5:10] + "/"
         if(not os.path.exists(path)):
             os.makedirs(path)
         for play in text['data']['lessonData']['fileList']:
@@ -50,7 +50,7 @@ def download_single_lesson(url):
 
 
 def main():
-    filepaths = os.getcwd() + "\\todo\\"
+    filepaths = os.getcwd() + "/todo/"
     filelist = os.listdir(filepaths)
     for html_file in filelist:
         if html_file[-5:] != '.html':
